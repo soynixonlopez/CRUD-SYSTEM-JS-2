@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema CRUD - Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-box"></i>
+                Sistema CRUD Productos
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="crear-producto-simple.html" class="nav-link">
+                    <i class="fas fa-plus"></i>
+                    Crear Producto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>Lista de Productos</h2>
+                <a href="crear-producto-simple.html" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Nuevo Producto
+                </a>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar productos..." class="search-input">
+                </div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option value="">Todos los productos</option>
+                        <option value="electronics">Electrónicos</option>
+                        <option value="clothing">Ropa</option>
+                        <option value="books">Libros</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200/4CAF50/FFFFFF?text=Producto+1" alt="Producto 1">
+                        <div class="product-badge">Nuevo</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Laptop Gaming Pro</h3>
+                        <p class="product-description">Laptop de alto rendimiento para gaming con gráficos dedicados y procesador de última generación.</p>
+                        <div class="product-prices">
+                            <span class="current-price">$1,299.99</span>
+                            <span class="original-price">$1,599.99</span>
+                            <span class="discount">-19%</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="ver-producto.html" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                Ver
+                            </a>
+                            <a href="editar-producto.html" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </a>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200/2196F3/FFFFFF?text=Producto+2" alt="Producto 2">
+                        <div class="product-badge">Oferta</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smartphone Galaxy S23</h3>
+                        <p class="product-description">Smartphone de gama alta con cámara profesional y batería de larga duración.</p>
+                        <div class="product-prices">
+                            <span class="current-price">$899.99</span>
+                            <span class="original-price">$1,099.99</span>
+                            <span class="discount">-18%</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="ver-producto.html" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                Ver
+                            </a>
+                            <a href="editar-producto.html" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </a>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200/FF9800/FFFFFF?text=Producto+3" alt="Producto 3">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Auriculares Wireless Pro</h3>
+                        <p class="product-description">Auriculares inalámbricos con cancelación de ruido activa y sonido de alta calidad.</p>
+                        <div class="product-prices">
+                            <span class="current-price">$199.99</span>
+                            <span class="original-price">$249.99</span>
+                            <span class="discount">-20%</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="ver-producto.html" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                Ver
+                            </a>
+                            <a href="editar-producto.html" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </a>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200/9C27B0/FFFFFF?text=Producto+4" alt="Producto 4">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tablet iPad Air</h3>
+                        <p class="product-description">Tablet versátil perfecta para trabajo y entretenimiento con pantalla Retina.</p>
+                        <div class="product-prices">
+                            <span class="current-price">$599.99</span>
+                            <span class="original-price">$699.99</span>
+                            <span class="discount">-14%</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="ver-producto.html" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                Ver
+                            </a>
+                            <a href="editar-producto.html" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </a>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sistema CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy, where, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAx9KAaJGmWSzjnLZ8SXmBHWAMbGeASTj0",
+            authDomain: "project-it-7713e.firebaseapp.com",
+            projectId: "project-it-7713e",
+            storageBucket: "project-it-7713e.firebasestorage.app",
+            messagingSenderId: "347539249965",
+            appId: "1:347539249965:web:ed9fbbe6d4d9c514c891a4",
+            measurementId: "G-46CC4SRTXN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Variables globales
+        let products = [];
+        let filteredProducts = [];
+
+        // Función para cargar productos desde Firestore
+        async function loadProducts() {
+            try {
+                showLoading();
+                
+                const productsRef = collection(db, "products");
+                const q = query(productsRef, orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                products = [];
+                querySnapshot.forEach((doc) => {
+                    const product = {
+                        id: doc.id,
+                        ...doc.data()
+                    };
+                    products.push(product);
+                });
+                
+                filteredProducts = [...products];
+                displayProducts();
+                hideLoading();
+                
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                alert('Error al cargar los productos. Intenta de nuevo.');
+                hideLoading();
+            }
+        }
+
+        // Función para mostrar productos
+        function displayProducts() {
+            const productsGrid = document.querySelector('.products-grid');
+            
+            if (filteredProducts.length === 0) {
+                productsGrid.innerHTML = `
+                    <div class="no-products">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No hay productos</h3>
+                        <p>No se encontraron productos. ¡Crea el primero!</p>
+                        <a href="crear-producto-simple.html" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Crear Producto
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            productsGrid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" data-product-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.imageUrl || 'https://via.placeholder.com/300x200/CCCCCC/FFFFFF?text=Sin+Imagen'}" alt="${product.name}">
+                        ${product.discount ? `<div class="product-badge">-${product.discount}%</div>` : ''}
+                        ${isNewProduct(product.createdAt) ? '<div class="product-badge">Nuevo</div>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-prices">
+                            <span class="current-price">$${product.currentPrice.toFixed(2)}</span>
+                            ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                            ${product.discount ? `<span class="discount">-${product.discount}%</span>` : ''}
+                        </div>
+                        <div class="product-stock-info">
+                            <i class="fas fa-boxes"></i>
+                            <span>Stock: ${product.stock || 0} unidades</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="ver-producto.html?id=${product.id}" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                Ver
+                            </a>
+                            <a href="editar-producto.html?id=${product.id}" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </a>
+                            <button class="btn btn-danger" onclick="deleteProduct('${product.id}')">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Función para verificar si un producto es nuevo (menos de 7 días)
+        function isNewProduct(createdAt) {
+            if (!createdAt) return false;
+            const createdDate = createdAt.toDate ? createdAt.toDate() : new Date(createdAt);
+            const now = new Date();
+            const diffTime = Math.abs(now - createdDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7;
+        }
+
+        // Función para mostrar loading
+        function showLoading() {
+            const productsGrid = document.querySelector('.products-grid');
+            productsGrid.innerHTML = `
+                <div class="loading-container">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando productos...</p>
+                </div>
+            `;
+        }
+
+        // Función para ocultar loading
+        function hideLoading() {
+            // El loading se oculta cuando se cargan los productos
+        }
+
+        // Función para buscar productos
+        function searchProducts(searchTerm) {
+            if (!searchTerm) {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    (product.sku && product.sku.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
+            }
+            displayProducts();
+        }
+
+        // Función para filtrar por categoría
+        function filterByCategory(category) {
+            if (!category) {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+            displayProducts();
+        }
+
+        // Función para eliminar producto
+        window.deleteProduct = async function(productId) {
+            if (confirm('¿Estás seguro de que quieres eliminar este producto? Esta acción no se puede deshacer.')) {
+                try {
+                    await deleteDoc(doc(db, "products", productId));
+                    alert('Producto eliminado exitosamente!');
+                    loadProducts(); // Recargar productos
+                } catch (error) {
+                    console.error('Error al eliminar producto:', error);
+                    alert('Error al eliminar el producto. Intenta de nuevo.');
+                }
+            }
+        };
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar productos al cargar la página
+            loadProducts();
+            
+            // Búsqueda en tiempo real
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function(e) {
+                searchProducts(e.target.value);
+            });
+            
+            // Filtro por categoría
+            const filterSelect = document.querySelector('.filter-select');
+            filterSelect.addEventListener('change', function(e) {
+                filterByCategory(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Producto - Sistema CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-box"></i>
+                Sistema CRUD Productos
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="crear-producto-simple.html" class="nav-link active">
+                    <i class="fas fa-plus"></i>
+                    Crear Producto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>Crear Nuevo Producto</h2>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
+                </a>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <form class="product-form" id="createProductForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Información del Producto
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productName" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Nombre del Producto *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="productName" 
+                                    name="productName" 
+                                    class="form-input" 
+                                    placeholder="Ej: Laptop Gaming Pro"
+                                    required
+                                >
+                                <span class="form-help">Ingresa el nombre completo del producto</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productDescription" class="form-label">
+                                    <i class="fas fa-align-left"></i>
+                                    Descripción *
+                                </label>
+                                <textarea 
+                                    id="productDescription" 
+                                    name="productDescription" 
+                                    class="form-textarea" 
+                                    placeholder="Describe las características principales del producto..."
+                                    rows="4"
+                                    required
+                                ></textarea>
+                                <span class="form-help">Proporciona una descripción detallada del producto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-dollar-sign"></i>
+                            Información de Precios
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currentPrice" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Precio Actual *
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="currentPrice" 
+                                        name="currentPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                        required
+                                    >
+                                </div>
+                                <span class="form-help">Precio de venta actual del producto</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="originalPrice" class="form-label">
+                                    <i class="fas fa-tags"></i>
+                                    Precio Original
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="originalPrice" 
+                                        name="originalPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                    >
+                                </div>
+                                <span class="form-help">Precio original antes de descuentos (opcional)</span>
+                            </div>
+                        </div>
+
+                        <!-- Discount Display -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="discount-display" id="discountDisplay" style="display: none;">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>Descuento calculado: <strong id="discountValue">0%</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Crear Producto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sistema CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAx9KAaJGmWSzjnLZ8SXmBHWAMbGeASTj0",
+            authDomain: "project-it-7713e.firebaseapp.com",
+            projectId: "project-it-7713e",
+            storageBucket: "project-it-7713e.firebasestorage.app",
+            messagingSenderId: "347539249965",
+            appId: "1:347539249965:web:ed9fbbe6d4d9c514c891a4",
+            measurementId: "G-46CC4SRTXN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Función para generar SKU automático
+        function generateSKU(productName) {
+            const timestamp = Date.now().toString().slice(-6);
+            const namePrefix = productName.substring(0, 3).toUpperCase();
+            return `${namePrefix}-${timestamp}`;
+        }
+
+        // Función para validar formulario
+        function validateForm(formData) {
+            const errors = [];
+            
+            if (!formData.name || formData.name.trim().length < 3) {
+                errors.push('El nombre del producto debe tener al menos 3 caracteres');
+            }
+            
+            if (!formData.currentPrice || formData.currentPrice <= 0) {
+                errors.push('El precio actual debe ser mayor a 0');
+            }
+            
+            if (!formData.description || formData.description.trim().length < 10) {
+                errors.push('La descripción debe tener al menos 10 caracteres');
+            }
+            
+            if (formData.originalPrice && formData.originalPrice <= formData.currentPrice) {
+                errors.push('El precio original debe ser mayor al precio actual');
+            }
+            
+            return errors;
+        }
+
+        // Función para mostrar mensajes de error
+        function showErrors(errors) {
+            const errorMessage = errors.join('\n');
+            alert('Errores en el formulario:\n' + errorMessage);
+        }
+
+        // Función para mostrar loading
+        function showLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+            submitBtn.disabled = true;
+        }
+
+        // Función para ocultar loading
+        function hideLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Crear Producto';
+            submitBtn.disabled = false;
+        }
+
+        // Función para calcular y mostrar descuento
+        function calculateDiscount() {
+            const currentPrice = parseFloat(document.getElementById('currentPrice').value) || 0;
+            const originalPrice = parseFloat(document.getElementById('originalPrice').value) || 0;
+            const discountDisplay = document.getElementById('discountDisplay');
+            const discountValue = document.getElementById('discountValue');
+            
+            if (originalPrice > currentPrice && currentPrice > 0) {
+                const discount = ((originalPrice - currentPrice) / originalPrice) * 100;
+                discountValue.textContent = Math.round(discount) + '%';
+                discountDisplay.style.display = 'block';
+            } else {
+                discountDisplay.style.display = 'none';
+            }
+        }
+
+        // Manejo del formulario
+        document.getElementById('createProductForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                // Mostrar loading
+                showLoading();
+                
+                // Obtener datos del formulario
+                const formData = {
+                    name: document.getElementById('productName').value.trim(),
+                    description: document.getElementById('productDescription').value.trim(),
+                    currentPrice: parseFloat(document.getElementById('currentPrice').value),
+                    originalPrice: parseFloat(document.getElementById('originalPrice').value) || null
+                };
+
+                // Validar formulario
+                const errors = validateForm(formData);
+                if (errors.length > 0) {
+                    showErrors(errors);
+                    hideLoading();
+                    return;
+                }
+
+                // Generar SKU automático
+                formData.sku = generateSKU(formData.name);
+
+                // Calcular descuento si hay precio original
+                if (formData.originalPrice && formData.originalPrice > formData.currentPrice) {
+                    const discount = ((formData.originalPrice - formData.currentPrice) / formData.originalPrice) * 100;
+                    formData.discount = Math.round(discount);
+                }
+
+                // Agregar metadatos
+                formData.createdAt = serverTimestamp();
+                formData.updatedAt = serverTimestamp();
+                formData.status = 'active';
+                formData.visibility = 'public';
+                formData.category = 'general';
+                formData.stock = 0;
+
+                // Guardar en Firestore
+                const docRef = await addDoc(collection(db, "products"), formData);
+                
+                console.log('Producto guardado con ID:', docRef.id);
+                
+                // Mostrar mensaje de éxito
+                alert('¡Producto creado exitosamente!\nID del producto: ' + docRef.id);
+                
+                // Redirigir a la lista de productos
+                window.location.href = 'index.html';
+                
+            } catch (error) {
+                console.error('Error al guardar producto:', error);
+                alert('Error al guardar el producto. Intenta de nuevo.');
+                hideLoading();
+            }
+        });
+
+        // Event listeners para cálculos automáticos
+        document.getElementById('currentPrice').addEventListener('input', calculateDiscount);
+        document.getElementById('originalPrice').addEventListener('input', calculateDiscount);
+    </script>
+
+    <style>
+        /* Estilos específicos para el descuento */
+        .discount-display {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            background-color: var(--success-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .discount-display i {
+            font-size: 1.2rem;
+        }
+
+        /* Simplificar el formulario */
+        .form-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-row {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-actions {
+            margin-top: var(--spacing-xl);
+        }
+    </style>
+</body>
+</html> 

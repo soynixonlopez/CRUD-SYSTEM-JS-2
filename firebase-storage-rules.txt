@@ -1,0 +1,18 @@
+// Reglas de Firebase Storage para permitir subida de imágenes
+// Copia estas reglas en tu Firebase Console > Storage > Rules
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Permitir acceso público a las imágenes de productos
+    match /product-images/{imageId} {
+      allow read: if true;  // Cualquiera puede leer las imágenes
+      allow write: if true; // Cualquiera puede subir imágenes (en producción deberías agregar autenticación)
+    }
+    
+    // Regla general para otros archivos
+    match /{allPaths=**} {
+      allow read, write: if true; // Solo para desarrollo - cambiar en producción
+    }
+  }
+} 

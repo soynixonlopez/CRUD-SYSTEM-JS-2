@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Producto - Sistema CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-box"></i>
+                Sistema CRUD Productos
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="crear-producto.html" class="nav-link active">
+                    <i class="fas fa-plus"></i>
+                    Crear Producto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>Crear Nuevo Producto</h2>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
+                </a>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <form class="product-form" id="createProductForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Información Básica
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productName" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Nombre del Producto *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="productName" 
+                                    name="productName" 
+                                    class="form-input" 
+                                    placeholder="Ej: Laptop Gaming Pro"
+                                    required
+                                >
+                                <span class="form-help">Ingresa el nombre completo del producto</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productDescription" class="form-label">
+                                    <i class="fas fa-align-left"></i>
+                                    Descripción *
+                                </label>
+                                <textarea 
+                                    id="productDescription" 
+                                    name="productDescription" 
+                                    class="form-textarea" 
+                                    placeholder="Describe las características principales del producto..."
+                                    rows="4"
+                                    required
+                                ></textarea>
+                                <span class="form-help">Proporciona una descripción detallada del producto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-dollar-sign"></i>
+                            Información de Precios
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currentPrice" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Precio Actual *
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="currentPrice" 
+                                        name="currentPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                        required
+                                    >
+                                </div>
+                                <span class="form-help">Precio de venta actual del producto</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="originalPrice" class="form-label">
+                                    <i class="fas fa-tags"></i>
+                                    Precio Original
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="originalPrice" 
+                                        name="originalPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                    >
+                                </div>
+                                <span class="form-help">Precio original antes de descuentos (opcional)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productCategory" class="form-label">
+                                    <i class="fas fa-folder"></i>
+                                    Categoría
+                                </label>
+                                <select id="productCategory" name="productCategory" class="form-select">
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="electronics">Electrónicos</option>
+                                    <option value="clothing">Ropa</option>
+                                    <option value="books">Libros</option>
+                                    <option value="home">Hogar</option>
+                                    <option value="sports">Deportes</option>
+                                    <option value="beauty">Belleza</option>
+                                    <option value="other">Otros</option>
+                                </select>
+                                <span class="form-help">Selecciona la categoría del producto</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productStock" class="form-label">
+                                    <i class="fas fa-boxes"></i>
+                                    Stock Disponible
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="productStock" 
+                                    name="productStock" 
+                                    class="form-input" 
+                                    placeholder="0"
+                                    min="0"
+                                    value="0"
+                                >
+                                <span class="form-help">Cantidad disponible en inventario</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-image"></i>
+                            Imagen del Producto
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productImage" class="form-label">
+                                    <i class="fas fa-upload"></i>
+                                    Subir Imagen *
+                                </label>
+                                <div class="image-upload-container">
+                                    <div class="image-preview" id="imagePreview">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Haz clic para subir una imagen</p>
+                                        <span class="upload-hint">Formatos: JPG, PNG, GIF (Max: 5MB)</span>
+                                    </div>
+                                    <input 
+                                        type="file" 
+                                        id="productImage" 
+                                        name="productImage" 
+                                        class="form-file-input" 
+                                        accept="image/*"
+                                        required
+                                    >
+                                </div>
+                                <span class="form-help">Sube una imagen clara del producto</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="imageUrl" class="form-label">
+                                    <i class="fas fa-link"></i>
+                                    URL de Imagen (Alternativa)
+                                </label>
+                                <input 
+                                    type="url" 
+                                    id="imageUrl" 
+                                    name="imageUrl" 
+                                    class="form-input" 
+                                    placeholder="https://ejemplo.com/imagen.jpg"
+                                >
+                                <span class="form-help">O proporciona una URL de imagen externa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-cogs"></i>
+                            Información Adicional
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productSKU" class="form-label">
+                                    <i class="fas fa-barcode"></i>
+                                    SKU (Código de Producto)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="productSKU" 
+                                    name="productSKU" 
+                                    class="form-input" 
+                                    placeholder="SKU-001"
+                                >
+                                <span class="form-help">Código único del producto (opcional)</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productWeight" class="form-label">
+                                    <i class="fas fa-weight-hanging"></i>
+                                    Peso (kg)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="productWeight" 
+                                    name="productWeight" 
+                                    class="form-input" 
+                                    placeholder="0.5"
+                                    step="0.01"
+                                    min="0"
+                                >
+                                <span class="form-help">Peso del producto en kilogramos</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productDimensions" class="form-label">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    Dimensiones (cm)
+                                </label>
+                                <div class="dimensions-input-group">
+                                    <input 
+                                        type="number" 
+                                        id="productLength" 
+                                        name="productLength" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Largo"
+                                        step="0.1"
+                                        min="0"
+                                    >
+                                    <span class="dimension-separator">×</span>
+                                    <input 
+                                        type="number" 
+                                        id="productWidth" 
+                                        name="productWidth" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Ancho"
+                                        step="0.1"
+                                        min="0"
+                                    >
+                                    <span class="dimension-separator">×</span>
+                                    <input 
+                                        type="number" 
+                                        id="productHeight" 
+                                        name="productHeight" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Alto"
+                                        step="0.1"
+                                        min="0"
+                                    >
+                                </div>
+                                <span class="form-help">Dimensiones: Largo × Ancho × Alto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Crear Producto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sistema CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-storage.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAx9KAaJGmWSzjnLZ8SXmBHWAMbGeASTj0",
+            authDomain: "project-it-7713e.firebaseapp.com",
+            projectId: "project-it-7713e",
+            storageBucket: "project-it-7713e.firebasestorage.app",
+            messagingSenderId: "347539249965",
+            appId: "1:347539249965:web:ed9fbbe6d4d9c514c891a4",
+            measurementId: "G-46CC4SRTXN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        // Variables globales
+        let imageFile = null;
+        let imageUrl = null;
+
+        // Preview de imagen
+        document.getElementById('productImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            
+            if (file) {
+                imageFile = file;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; max-height: 200px;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Función para subir imagen a Firebase Storage
+        async function uploadImageToStorage(file) {
+            try {
+                // Validar tipo de archivo
+                if (!file.type.startsWith('image/')) {
+                    throw new Error('El archivo debe ser una imagen');
+                }
+
+                // Validar tamaño (máximo 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    throw new Error('La imagen debe ser menor a 5MB');
+                }
+
+                const storageRef = ref(storage, 'product-images/' + Date.now() + '_' + file.name);
+                const snapshot = await uploadBytes(storageRef, file);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                return downloadURL;
+            } catch (error) {
+                console.error('Error al subir imagen:', error);
+                
+                // Manejar errores específicos de CORS
+                if (error.code === 'storage/unauthorized') {
+                    throw new Error('Error de permisos. Verifica las reglas de Firebase Storage.');
+                } else if (error.code === 'storage/retry-limit-exceeded') {
+                    throw new Error('Error de conexión. Intenta de nuevo.');
+                } else {
+                    throw new Error('Error al subir la imagen: ' + error.message);
+                }
+            }
+        }
+
+        // Función para generar SKU automático
+        function generateSKU(productName, category) {
+            const timestamp = Date.now().toString().slice(-6);
+            const namePrefix = productName.substring(0, 3).toUpperCase();
+            const categoryPrefix = category ? category.substring(0, 3).toUpperCase() : 'GEN';
+            return `${namePrefix}-${categoryPrefix}-${timestamp}`;
+        }
+
+        // Función para validar formulario
+        function validateForm(formData) {
+            const errors = [];
+            
+            if (!formData.name || formData.name.trim().length < 3) {
+                errors.push('El nombre del producto debe tener al menos 3 caracteres');
+            }
+            
+            if (!formData.currentPrice || formData.currentPrice <= 0) {
+                errors.push('El precio actual debe ser mayor a 0');
+            }
+            
+            if (!formData.description || formData.description.trim().length < 10) {
+                errors.push('La descripción debe tener al menos 10 caracteres');
+            }
+            
+            if (!imageFile && !formData.imageUrl) {
+                errors.push('Debes subir una imagen o proporcionar una URL de imagen');
+            }
+            
+            return errors;
+        }
+
+        // Función para mostrar mensajes de error
+        function showErrors(errors) {
+            const errorMessage = errors.join('\n');
+            alert('Errores en el formulario:\n' + errorMessage);
+        }
+
+        // Función para mostrar loading
+        function showLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+            submitBtn.disabled = true;
+        }
+
+        // Función para ocultar loading
+        function hideLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Crear Producto';
+            submitBtn.disabled = false;
+        }
+
+        // Manejo del formulario
+        document.getElementById('createProductForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                // Mostrar loading
+                showLoading();
+                
+                // Obtener datos del formulario
+                const formData = {
+                    name: document.getElementById('productName').value.trim(),
+                    description: document.getElementById('productDescription').value.trim(),
+                    currentPrice: parseFloat(document.getElementById('currentPrice').value),
+                    originalPrice: parseFloat(document.getElementById('originalPrice').value) || null,
+                    category: document.getElementById('productCategory').value,
+                    stock: parseInt(document.getElementById('productStock').value) || 0,
+                    imageUrl: document.getElementById('imageUrl').value.trim(),
+                    sku: document.getElementById('productSKU').value.trim(),
+                    weight: parseFloat(document.getElementById('productWeight').value) || null,
+                    length: parseFloat(document.getElementById('productLength').value) || null,
+                    width: parseFloat(document.getElementById('productWidth').value) || null,
+                    height: parseFloat(document.getElementById('productHeight').value) || null
+                };
+
+                // Validar formulario
+                const errors = validateForm(formData);
+                if (errors.length > 0) {
+                    showErrors(errors);
+                    hideLoading();
+                    return;
+                }
+
+                // Subir imagen si se seleccionó un archivo
+                if (imageFile) {
+                    try {
+                        formData.imageUrl = await uploadImageToStorage(imageFile);
+                    } catch (error) {
+                        console.error('Error detallado:', error);
+                        alert('Error al subir la imagen: ' + error.message + '\n\nSugerencias:\n1. Verifica tu conexión a internet\n2. Asegúrate de que Firebase Storage esté habilitado\n3. Verifica las reglas de Firebase Storage');
+                        hideLoading();
+                        return;
+                    }
+                }
+
+                // Generar SKU automático si no se proporcionó
+                if (!formData.sku) {
+                    formData.sku = generateSKU(formData.name, formData.category);
+                }
+
+                // Calcular descuento si hay precio original
+                if (formData.originalPrice && formData.originalPrice > formData.currentPrice) {
+                    const discount = ((formData.originalPrice - formData.currentPrice) / formData.originalPrice) * 100;
+                    formData.discount = Math.round(discount);
+                }
+
+                // Agregar metadatos
+                formData.createdAt = serverTimestamp();
+                formData.updatedAt = serverTimestamp();
+                formData.status = 'active';
+                formData.visibility = 'public';
+
+                // Guardar en Firestore
+                const docRef = await addDoc(collection(db, "products"), formData);
+                
+                console.log('Producto guardado con ID:', docRef.id);
+                
+                // Mostrar mensaje de éxito
+                alert('¡Producto creado exitosamente!\nID del producto: ' + docRef.id);
+                
+                // Redirigir a la lista de productos
+                window.location.href = 'index.html';
+                
+            } catch (error) {
+                console.error('Error al guardar producto:', error);
+                alert('Error al guardar el producto. Intenta de nuevo.');
+                hideLoading();
+            }
+        });
+
+        // Función para calcular descuento automáticamente
+        function calculateDiscount() {
+            const currentPrice = parseFloat(document.getElementById('currentPrice').value) || 0;
+            const originalPrice = parseFloat(document.getElementById('originalPrice').value) || 0;
+            
+            if (originalPrice > currentPrice && currentPrice > 0) {
+                const discount = ((originalPrice - currentPrice) / originalPrice) * 100;
+                console.log('Descuento calculado:', Math.round(discount) + '%');
+            }
+        }
+
+        // Event listeners para cálculos automáticos
+        document.getElementById('currentPrice').addEventListener('input', calculateDiscount);
+        document.getElementById('originalPrice').addEventListener('input', calculateDiscount);
+    </script>
+</body>
+</html> 

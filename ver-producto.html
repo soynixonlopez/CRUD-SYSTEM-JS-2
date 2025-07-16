@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Producto - Sistema CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-box"></i>
+                Sistema CRUD Productos
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="crear-producto-simple.html" class="nav-link">
+                    <i class="fas fa-plus"></i>
+                    Crear Producto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>Detalles del Producto</h2>
+                <div class="header-actions">
+                    <a href="editar-producto.html" class="btn btn-warning">
+                        <i class="fas fa-edit"></i>
+                        Editar
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Volver
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <!-- Product Header -->
+                <div class="product-header">
+                    <div class="product-main-image">
+                        <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Laptop+Gaming+Pro" alt="Laptop Gaming Pro">
+                        <div class="product-badge">Nuevo</div>
+                    </div>
+                    <div class="product-main-info">
+                        <h1 class="product-title">Laptop Gaming Pro</h1>
+                        <div class="product-meta">
+                            <span class="product-id">ID: PRD-001</span>
+                            <span class="product-category">Electrónicos</span>
+                            <span class="product-status status-active">Activo</span>
+                        </div>
+                        <div class="product-prices">
+                            <div class="price-main">
+                                <span class="current-price">$1,299.99</span>
+                                <span class="original-price">$1,599.99</span>
+                                <span class="discount">-19%</span>
+                            </div>
+                            <div class="price-details">
+                                <span class="price-label">Precio actual:</span>
+                                <span class="price-value">$1,299.99</span>
+                            </div>
+                            <div class="price-details">
+                                <span class="price-label">Precio original:</span>
+                                <span class="price-value">$1,599.99</span>
+                            </div>
+                            <div class="price-details">
+                                <span class="price-label">Ahorro:</span>
+                                <span class="price-value discount-text">$300.00</span>
+                            </div>
+                        </div>
+                        <div class="product-stock">
+                            <i class="fas fa-boxes"></i>
+                            <span class="stock-label">Stock disponible:</span>
+                            <span class="stock-value">15 unidades</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="product-content">
+                    <div class="product-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Descripción
+                        </h3>
+                        <div class="product-description">
+                            <p>Laptop de alto rendimiento para gaming con gráficos dedicados y procesador de última generación. Incluye pantalla de 15.6 pulgadas, 16GB RAM, SSD de 512GB y GPU RTX 3060.</p>
+                            <p>Perfecta para jugadores profesionales y usuarios que requieren máximo rendimiento en sus aplicaciones de trabajo y entretenimiento.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-cogs"></i>
+                            Especificaciones Técnicas
+                        </h3>
+                        <div class="specifications-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Procesador:</span>
+                                <span class="spec-value">Intel Core i7-12700H</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Memoria RAM:</span>
+                                <span class="spec-value">16GB DDR4</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Almacenamiento:</span>
+                                <span class="spec-value">512GB SSD NVMe</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Tarjeta Gráfica:</span>
+                                <span class="spec-value">NVIDIA RTX 3060 6GB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Pantalla:</span>
+                                <span class="spec-value">15.6" Full HD 144Hz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Sistema Operativo:</span>
+                                <span class="spec-value">Windows 11 Pro</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-ruler-combined"></i>
+                            Información Física
+                        </h3>
+                        <div class="physical-info">
+                            <div class="info-item">
+                                <span class="info-label">Peso:</span>
+                                <span class="info-value">2.5 kg</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Dimensiones:</span>
+                                <span class="info-value">35.8 × 24.2 × 2.3 cm</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">SKU:</span>
+                                <span class="info-value">LAP-GAM-001</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-images"></i>
+                            Galería de Imágenes
+                        </h3>
+                        <div class="product-gallery">
+                            <div class="gallery-main">
+                                <img src="https://via.placeholder.com/600x400/4CAF50/FFFFFF?text=Imagen+Principal" alt="Imagen Principal">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <div class="thumbnail active">
+                                    <img src="https://via.placeholder.com/100x100/4CAF50/FFFFFF?text=1" alt="Thumbnail 1">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://via.placeholder.com/100x100/2196F3/FFFFFF?text=2" alt="Thumbnail 2">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://via.placeholder.com/100x100/FF9800/FFFFFF?text=3" alt="Thumbnail 3">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://via.placeholder.com/100x100/9C27B0/FFFFFF?text=4" alt="Thumbnail 4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-chart-line"></i>
+                            Historial de Precios
+                        </h3>
+                        <div class="price-history">
+                            <div class="price-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">15 Ene 2024</div>
+                                    <div class="timeline-price">$1,599.99</div>
+                                    <div class="timeline-label">Precio inicial</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">20 Ene 2024</div>
+                                    <div class="timeline-price">$1,499.99</div>
+                                    <div class="timeline-label">Primera rebaja</div>
+                                </div>
+                                <div class="timeline-item current">
+                                    <div class="timeline-date">01 Feb 2024</div>
+                                    <div class="timeline-price">$1,299.99</div>
+                                    <div class="timeline-label">Precio actual</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Actions -->
+                <div class="product-actions">
+                    <div class="action-group">
+                        <a href="editar-producto.html" class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                            Editar Producto
+                        </a>
+                        <button class="btn btn-danger" onclick="deleteProduct()">
+                            <i class="fas fa-trash"></i>
+                            Eliminar Producto
+                        </button>
+                    </div>
+                    <div class="action-group">
+                        <a href="index.html" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver a la Lista
+                        </a>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Exportar Datos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sistema CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAx9KAaJGmWSzjnLZ8SXmBHWAMbGeASTj0",
+            authDomain: "project-it-7713e.firebaseapp.com",
+            projectId: "project-it-7713e",
+            storageBucket: "project-it-7713e.firebasestorage.app",
+            messagingSenderId: "347539249965",
+            appId: "1:347539249965:web:ed9fbbe6d4d9c514c891a4",
+            measurementId: "G-46CC4SRTXN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Variables globales
+        let productId = null;
+        let currentProduct = null;
+
+        // Obtener ID del producto de la URL
+        function getProductIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Cargar datos del producto
+        async function loadProduct() {
+            productId = getProductIdFromUrl();
+            
+            if (!productId) {
+                alert('No se proporcionó ID de producto');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                showLoading();
+                
+                const docRef = doc(db, "products", productId);
+                const docSnap = await getDoc(docRef);
+                
+                if (docSnap.exists()) {
+                    currentProduct = { id: docSnap.id, ...docSnap.data() };
+                    displayProduct(currentProduct);
+                } else {
+                    alert('Producto no encontrado');
+                    window.location.href = 'index.html';
+                }
+                
+                hideLoading();
+                
+            } catch (error) {
+                console.error('Error al cargar producto:', error);
+                alert('Error al cargar el producto');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Mostrar datos del producto
+        function displayProduct(product) {
+            // Actualizar imagen principal
+            const mainImage = document.querySelector('.product-main-image img');
+            if (mainImage) {
+                mainImage.src = product.imageUrl || 'https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Sin+Imagen';
+                mainImage.alt = product.name;
+            }
+
+            // Actualizar información del producto
+            const productTitle = document.querySelector('.product-title');
+            if (productTitle) productTitle.textContent = product.name;
+
+            const productId = document.querySelector('.product-id');
+            if (productId) productId.textContent = `ID: ${product.id}`;
+
+            const productCategory = document.querySelector('.product-category');
+            if (productCategory) productCategory.textContent = product.category || 'Sin categoría';
+
+            const productStatus = document.querySelector('.product-status');
+            if (productStatus) {
+                productStatus.textContent = product.status === 'active' ? 'Activo' : 'Inactivo';
+                productStatus.className = `product-status status-${product.status}`;
+            }
+
+            // Actualizar precios
+            const currentPrice = document.querySelector('.current-price');
+            if (currentPrice) currentPrice.textContent = `$${product.currentPrice.toFixed(2)}`;
+
+            const originalPrice = document.querySelector('.original-price');
+            if (originalPrice && product.originalPrice) {
+                originalPrice.textContent = `$${product.originalPrice.toFixed(2)}`;
+            }
+
+            const discount = document.querySelector('.discount');
+            if (discount && product.discount) {
+                discount.textContent = `-${product.discount}%`;
+            }
+
+            // Actualizar detalles de precio
+            const priceDetails = document.querySelectorAll('.price-details .price-value');
+            if (priceDetails.length >= 3) {
+                priceDetails[0].textContent = `$${product.currentPrice.toFixed(2)}`;
+                if (product.originalPrice) {
+                    priceDetails[1].textContent = `$${product.originalPrice.toFixed(2)}`;
+                    const savings = product.originalPrice - product.currentPrice;
+                    priceDetails[2].textContent = `$${savings.toFixed(2)}`;
+                }
+            }
+
+            // Actualizar stock
+            const stockValue = document.querySelector('.stock-value');
+            if (stockValue) stockValue.textContent = `${product.stock || 0} unidades`;
+
+            // Actualizar descripción
+            const description = document.querySelector('.product-description');
+            if (description) {
+                description.innerHTML = `<p>${product.description}</p>`;
+            }
+
+            // Actualizar especificaciones técnicas
+            updateSpecifications(product);
+
+            // Actualizar información física
+            updatePhysicalInfo(product);
+
+            // Actualizar galería
+            updateGallery(product);
+
+            // Actualizar historial de precios
+            updatePriceHistory(product);
+
+            // Actualizar enlaces de acción
+            updateActionLinks(product);
+        }
+
+        // Actualizar especificaciones técnicas
+        function updateSpecifications(product) {
+            const specs = [
+                { label: 'Procesador', value: product.processor || 'No especificado' },
+                { label: 'Memoria RAM', value: product.ram || 'No especificado' },
+                { label: 'Almacenamiento', value: product.storage || 'No especificado' },
+                { label: 'Tarjeta Gráfica', value: product.graphics || 'No especificado' },
+                { label: 'Pantalla', value: product.display || 'No especificado' },
+                { label: 'Sistema Operativo', value: product.os || 'No especificado' }
+            ];
+
+            const specsGrid = document.querySelector('.specifications-grid');
+            if (specsGrid) {
+                specsGrid.innerHTML = specs.map(spec => `
+                    <div class="spec-item">
+                        <span class="spec-label">${spec.label}:</span>
+                        <span class="spec-value">${spec.value}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Actualizar información física
+        function updatePhysicalInfo(product) {
+            const physicalInfo = document.querySelector('.physical-info');
+            if (physicalInfo) {
+                physicalInfo.innerHTML = `
+                    <div class="info-item">
+                        <span class="info-label">Peso:</span>
+                        <span class="info-value">${product.weight ? product.weight + ' kg' : 'No especificado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dimensiones:</span>
+                        <span class="info-value">${product.length && product.width && product.height ? 
+                            `${product.length} × ${product.width} × ${product.height} cm` : 'No especificado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">SKU:</span>
+                        <span class="info-value">${product.sku || 'No especificado'}</span>
+                    </div>
+                `;
+            }
+        }
+
+        // Actualizar galería
+        function updateGallery(product) {
+            const galleryMain = document.querySelector('.gallery-main img');
+            const thumbnails = document.querySelector('.gallery-thumbnails');
+
+            if (galleryMain) {
+                galleryMain.src = product.imageUrl || 'https://via.placeholder.com/600x400/CCCCCC/FFFFFF?text=Sin+Imagen';
+            }
+
+            if (thumbnails) {
+                // Por ahora solo mostramos una imagen, pero podrías expandir esto
+                thumbnails.innerHTML = `
+                    <div class="thumbnail active">
+                        <img src="${product.imageUrl || 'https://via.placeholder.com/100x100/CCCCCC/FFFFFF?text=1'}" alt="Thumbnail 1">
+                    </div>
+                `;
+            }
+        }
+
+        // Actualizar historial de precios
+        function updatePriceHistory(product) {
+            const priceHistory = document.querySelector('.price-timeline');
+            if (priceHistory) {
+                const history = [
+                    {
+                        date: '15 Ene 2024',
+                        price: product.originalPrice || product.currentPrice,
+                        label: 'Precio inicial'
+                    },
+                    {
+                        date: '01 Feb 2024',
+                        price: product.currentPrice,
+                        label: 'Precio actual',
+                        current: true
+                    }
+                ];
+
+                priceHistory.innerHTML = history.map(item => `
+                    <div class="timeline-item ${item.current ? 'current' : ''}">
+                        <div class="timeline-date">${item.date}</div>
+                        <div class="timeline-price">$${item.price.toFixed(2)}</div>
+                        <div class="timeline-label">${item.label}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Actualizar enlaces de acción
+        function updateActionLinks(product) {
+            const editLink = document.querySelector('a[href*="editar-producto.html"]');
+            const deleteBtn = document.querySelector('button[onclick*="deleteProduct"]');
+
+            if (editLink) {
+                editLink.href = `editar-producto.html?id=${product.id}`;
+            }
+
+            if (deleteBtn) {
+                deleteBtn.onclick = () => deleteProduct();
+            }
+        }
+
+        // Función para mostrar loading
+        function showLoading() {
+            const productDetails = document.querySelector('.product-details');
+            if (productDetails) {
+                productDetails.innerHTML = `
+                    <div class="loading-container">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Cargando producto...</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Función para ocultar loading
+        function hideLoading() {
+            // El loading se oculta cuando se cargan los datos
+        }
+
+        // Galería de imágenes
+        function setupGallery() {
+            document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Remover clase active de todos los thumbnails
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    // Agregar clase active al thumbnail clickeado
+                    this.classList.add('active');
+                    
+                    // Cambiar imagen principal
+                    const imgSrc = this.querySelector('img').src;
+                    document.querySelector('.gallery-main img').src = imgSrc;
+                });
+            });
+        }
+
+        // Función para eliminar producto
+        window.deleteProduct = async function() {
+            if (confirm('¿Estás seguro de que quieres eliminar este producto? Esta acción no se puede deshacer.')) {
+                try {
+                    await deleteDoc(doc(db, "products", productId));
+                    alert('Producto eliminado exitosamente!');
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Error al eliminar producto:', error);
+                    alert('Error al eliminar el producto. Intenta de nuevo.');
+                }
+            }
+        };
+
+        // Cargar producto al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProduct().then(() => {
+                setupGallery();
+            });
+        });
+    </script>
+</body>
+</html> 

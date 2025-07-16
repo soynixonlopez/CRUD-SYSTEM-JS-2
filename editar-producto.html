@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto - Sistema CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-box"></i>
+                Sistema CRUD Productos
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="crear-producto-simple.html" class="nav-link">
+                    <i class="fas fa-plus"></i>
+                    Crear Producto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>Editar Producto</h2>
+                <div class="header-actions">
+                    <a href="ver-producto.html" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i>
+                        Ver Producto
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Volver
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Info Banner -->
+            <div class="product-banner">
+                <div class="product-banner-image">
+                    <img src="https://via.placeholder.com/100x100/4CAF50/FFFFFF?text=P" alt="Producto">
+                </div>
+                <div class="product-banner-info">
+                    <h3>Laptop Gaming Pro</h3>
+                    <p class="product-banner-id">ID: PRD-001</p>
+                    <p class="product-banner-category">Categoría: Electrónicos</p>
+                </div>
+                <div class="product-banner-status">
+                    <span class="status-badge status-active">Activo</span>
+                    <span class="stock-info">Stock: 15 unidades</span>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <form class="product-form" id="editProductForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Información Básica
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productName" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Nombre del Producto *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="productName" 
+                                    name="productName" 
+                                    class="form-input" 
+                                    placeholder="Ej: Laptop Gaming Pro"
+                                    value="Laptop Gaming Pro"
+                                    required
+                                >
+                                <span class="form-help">Ingresa el nombre completo del producto</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productDescription" class="form-label">
+                                    <i class="fas fa-align-left"></i>
+                                    Descripción *
+                                </label>
+                                <textarea 
+                                    id="productDescription" 
+                                    name="productDescription" 
+                                    class="form-textarea" 
+                                    placeholder="Describe las características principales del producto..."
+                                    rows="4"
+                                    required
+                                >Laptop de alto rendimiento para gaming con gráficos dedicados y procesador de última generación. Incluye pantalla de 15.6 pulgadas, 16GB RAM, SSD de 512GB y GPU RTX 3060.</textarea>
+                                <span class="form-help">Proporciona una descripción detallada del producto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-dollar-sign"></i>
+                            Información de Precios
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currentPrice" class="form-label">
+                                    <i class="fas fa-tag"></i>
+                                    Precio Actual *
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="currentPrice" 
+                                        name="currentPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                        value="1299.99"
+                                        required
+                                    >
+                                </div>
+                                <span class="form-help">Precio de venta actual del producto</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="originalPrice" class="form-label">
+                                    <i class="fas fa-tags"></i>
+                                    Precio Original
+                                </label>
+                                <div class="price-input-group">
+                                    <span class="currency-symbol">$</span>
+                                    <input 
+                                        type="number" 
+                                        id="originalPrice" 
+                                        name="originalPrice" 
+                                        class="form-input" 
+                                        placeholder="0.00"
+                                        step="0.01"
+                                        min="0"
+                                        value="1599.99"
+                                    >
+                                </div>
+                                <span class="form-help">Precio original antes de descuentos (opcional)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productCategory" class="form-label">
+                                    <i class="fas fa-folder"></i>
+                                    Categoría
+                                </label>
+                                <select id="productCategory" name="productCategory" class="form-select">
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="electronics" selected>Electrónicos</option>
+                                    <option value="clothing">Ropa</option>
+                                    <option value="books">Libros</option>
+                                    <option value="home">Hogar</option>
+                                    <option value="sports">Deportes</option>
+                                    <option value="beauty">Belleza</option>
+                                    <option value="other">Otros</option>
+                                </select>
+                                <span class="form-help">Selecciona la categoría del producto</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productStock" class="form-label">
+                                    <i class="fas fa-boxes"></i>
+                                    Stock Disponible
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="productStock" 
+                                    name="productStock" 
+                                    class="form-input" 
+                                    placeholder="0"
+                                    min="0"
+                                    value="15"
+                                >
+                                <span class="form-help">Cantidad disponible en inventario</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-image"></i>
+                            Imagen del Producto
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productImage" class="form-label">
+                                    <i class="fas fa-upload"></i>
+                                    Cambiar Imagen
+                                </label>
+                                <div class="image-upload-container">
+                                    <div class="image-preview" id="imagePreview">
+                                        <img src="https://via.placeholder.com/300x200/4CAF50/FFFFFF?text=Laptop+Gaming" alt="Current Image" style="max-width: 100%; max-height: 200px;">
+                                    </div>
+                                    <input 
+                                        type="file" 
+                                        id="productImage" 
+                                        name="productImage" 
+                                        class="form-file-input" 
+                                        accept="image/*"
+                                    >
+                                </div>
+                                <span class="form-help">Sube una nueva imagen del producto</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="imageUrl" class="form-label">
+                                    <i class="fas fa-link"></i>
+                                    URL de Imagen (Alternativa)
+                                </label>
+                                <input 
+                                    type="url" 
+                                    id="imageUrl" 
+                                    name="imageUrl" 
+                                    class="form-input" 
+                                    placeholder="https://ejemplo.com/imagen.jpg"
+                                    value="https://via.placeholder.com/300x200/4CAF50/FFFFFF?text=Laptop+Gaming"
+                                >
+                                <span class="form-help">O proporciona una URL de imagen externa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-cogs"></i>
+                            Información Adicional
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productSKU" class="form-label">
+                                    <i class="fas fa-barcode"></i>
+                                    SKU (Código de Producto)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="productSKU" 
+                                    name="productSKU" 
+                                    class="form-input" 
+                                    placeholder="SKU-001"
+                                    value="LAP-GAM-001"
+                                >
+                                <span class="form-help">Código único del producto (opcional)</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productWeight" class="form-label">
+                                    <i class="fas fa-weight-hanging"></i>
+                                    Peso (kg)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="productWeight" 
+                                    name="productWeight" 
+                                    class="form-input" 
+                                    placeholder="0.5"
+                                    step="0.01"
+                                    min="0"
+                                    value="2.5"
+                                >
+                                <span class="form-help">Peso del producto en kilogramos</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productDimensions" class="form-label">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    Dimensiones (cm)
+                                </label>
+                                <div class="dimensions-input-group">
+                                    <input 
+                                        type="number" 
+                                        id="productLength" 
+                                        name="productLength" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Largo"
+                                        step="0.1"
+                                        min="0"
+                                        value="35.8"
+                                    >
+                                    <span class="dimension-separator">×</span>
+                                    <input 
+                                        type="number" 
+                                        id="productWidth" 
+                                        name="productWidth" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Ancho"
+                                        step="0.1"
+                                        min="0"
+                                        value="24.2"
+                                    >
+                                    <span class="dimension-separator">×</span>
+                                    <input 
+                                        type="number" 
+                                        id="productHeight" 
+                                        name="productHeight" 
+                                        class="form-input dimension-input" 
+                                        placeholder="Alto"
+                                        step="0.1"
+                                        min="0"
+                                        value="2.3"
+                                    >
+                                </div>
+                                <span class="form-help">Dimensiones: Largo × Ancho × Alto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Status -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-toggle-on"></i>
+                            Estado del Producto
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productStatus" class="form-label">
+                                    <i class="fas fa-circle"></i>
+                                    Estado
+                                </label>
+                                <select id="productStatus" name="productStatus" class="form-select">
+                                    <option value="active" selected>Activo</option>
+                                    <option value="inactive">Inactivo</option>
+                                    <option value="draft">Borrador</option>
+                                    <option value="archived">Archivado</option>
+                                </select>
+                                <span class="form-help">Estado actual del producto en el sistema</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productVisibility" class="form-label">
+                                    <i class="fas fa-eye"></i>
+                                    Visibilidad
+                                </label>
+                                <select id="productVisibility" name="productVisibility" class="form-select">
+                                    <option value="public" selected>Público</option>
+                                    <option value="private">Privado</option>
+                                    <option value="hidden">Oculto</option>
+                                </select>
+                                <span class="form-help">Quién puede ver este producto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger" onclick="deleteProduct()">
+                            <i class="fas fa-trash"></i>
+                            Eliminar Producto
+                        </button>
+                        <div class="form-actions-right">
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                                <i class="fas fa-times"></i>
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sistema CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-storage.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAx9KAaJGmWSzjnLZ8SXmBHWAMbGeASTj0",
+            authDomain: "project-it-7713e.firebaseapp.com",
+            projectId: "project-it-7713e",
+            storageBucket: "project-it-7713e.firebasestorage.app",
+            messagingSenderId: "347539249965",
+            appId: "1:347539249965:web:ed9fbbe6d4d9c514c891a4",
+            measurementId: "G-46CC4SRTXN"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        // Variables globales
+        let productId = null;
+        let currentProduct = null;
+        let imageFile = null;
+
+        // Obtener ID del producto de la URL
+        function getProductIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Cargar datos del producto
+        async function loadProduct() {
+            productId = getProductIdFromUrl();
+            
+            if (!productId) {
+                alert('No se proporcionó ID de producto');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                showLoading();
+                
+                const docRef = doc(db, "products", productId);
+                const docSnap = await getDoc(docRef);
+                
+                if (docSnap.exists()) {
+                    currentProduct = { id: docSnap.id, ...docSnap.data() };
+                    populateForm(currentProduct);
+                    updateProductBanner(currentProduct);
+                } else {
+                    alert('Producto no encontrado');
+                    window.location.href = 'index.html';
+                }
+                
+                hideLoading();
+                
+            } catch (error) {
+                console.error('Error al cargar producto:', error);
+                alert('Error al cargar el producto');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Llenar formulario con datos del producto
+        function populateForm(product) {
+            document.getElementById('productName').value = product.name || '';
+            document.getElementById('productDescription').value = product.description || '';
+            document.getElementById('currentPrice').value = product.currentPrice || '';
+            document.getElementById('originalPrice').value = product.originalPrice || '';
+            document.getElementById('productCategory').value = product.category || '';
+            document.getElementById('productStock').value = product.stock || 0;
+            document.getElementById('imageUrl').value = product.imageUrl || '';
+            document.getElementById('productSKU').value = product.sku || '';
+            document.getElementById('productWeight').value = product.weight || '';
+            document.getElementById('productLength').value = product.length || '';
+            document.getElementById('productWidth').value = product.width || '';
+            document.getElementById('productHeight').value = product.height || '';
+            document.getElementById('productStatus').value = product.status || 'active';
+            document.getElementById('productVisibility').value = product.visibility || 'public';
+
+            // Actualizar preview de imagen
+            if (product.imageUrl) {
+                const preview = document.getElementById('imagePreview');
+                preview.innerHTML = `<img src="${product.imageUrl}" alt="Current Image" style="max-width: 100%; max-height: 200px;">`;
+            }
+        }
+
+        // Actualizar banner del producto
+        function updateProductBanner(product) {
+            const bannerImage = document.querySelector('.product-banner-image img');
+            const bannerTitle = document.querySelector('.product-banner-info h3');
+            const bannerId = document.querySelector('.product-banner-id');
+            const bannerCategory = document.querySelector('.product-banner-category');
+            const bannerStatus = document.querySelector('.status-badge');
+            const bannerStock = document.querySelector('.stock-info');
+
+            if (bannerImage) bannerImage.src = product.imageUrl || 'https://via.placeholder.com/100x100/CCCCCC/FFFFFF?text=P';
+            if (bannerTitle) bannerTitle.textContent = product.name;
+            if (bannerId) bannerId.textContent = `ID: ${product.id}`;
+            if (bannerCategory) bannerCategory.textContent = `Categoría: ${product.category || 'Sin categoría'}`;
+            if (bannerStatus) {
+                bannerStatus.textContent = product.status === 'active' ? 'Activo' : 'Inactivo';
+                bannerStatus.className = `status-badge status-${product.status}`;
+            }
+            if (bannerStock) bannerStock.textContent = `Stock: ${product.stock || 0} unidades`;
+        }
+
+        // Función para subir imagen a Firebase Storage
+        async function uploadImageToStorage(file) {
+            try {
+                const storageRef = ref(storage, 'product-images/' + Date.now() + '_' + file.name);
+                const snapshot = await uploadBytes(storageRef, file);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                return downloadURL;
+            } catch (error) {
+                console.error('Error al subir imagen:', error);
+                throw error;
+            }
+        }
+
+        // Función para mostrar loading
+        function showLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
+            submitBtn.disabled = true;
+        }
+
+        // Función para ocultar loading
+        function hideLoading() {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Guardar Cambios';
+            submitBtn.disabled = false;
+        }
+
+        // Preview de imagen
+        document.getElementById('productImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            
+            if (file) {
+                imageFile = file;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; max-height: 200px;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Manejo del formulario
+        document.getElementById('editProductForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                showLoading();
+                
+                // Obtener datos del formulario
+                const formData = {
+                    name: document.getElementById('productName').value.trim(),
+                    description: document.getElementById('productDescription').value.trim(),
+                    currentPrice: parseFloat(document.getElementById('currentPrice').value),
+                    originalPrice: parseFloat(document.getElementById('originalPrice').value) || null,
+                    category: document.getElementById('productCategory').value,
+                    stock: parseInt(document.getElementById('productStock').value) || 0,
+                    imageUrl: document.getElementById('imageUrl').value.trim(),
+                    sku: document.getElementById('productSKU').value.trim(),
+                    weight: parseFloat(document.getElementById('productWeight').value) || null,
+                    length: parseFloat(document.getElementById('productLength').value) || null,
+                    width: parseFloat(document.getElementById('productWidth').value) || null,
+                    height: parseFloat(document.getElementById('productHeight').value) || null,
+                    status: document.getElementById('productStatus').value,
+                    visibility: document.getElementById('productVisibility').value
+                };
+
+                // Subir imagen si se seleccionó un archivo
+                if (imageFile) {
+                    try {
+                        formData.imageUrl = await uploadImageToStorage(imageFile);
+                    } catch (error) {
+                        alert('Error al subir la imagen. Intenta de nuevo.');
+                        hideLoading();
+                        return;
+                    }
+                }
+
+                // Calcular descuento si hay precio original
+                if (formData.originalPrice && formData.originalPrice > formData.currentPrice) {
+                    const discount = ((formData.originalPrice - formData.currentPrice) / formData.originalPrice) * 100;
+                    formData.discount = Math.round(discount);
+                } else {
+                    formData.discount = null;
+                }
+
+                // Agregar timestamp de actualización
+                formData.updatedAt = serverTimestamp();
+
+                // Actualizar en Firestore
+                const docRef = doc(db, "products", productId);
+                await updateDoc(docRef, formData);
+                
+                console.log('Producto actualizado con ID:', productId);
+                
+                alert('¡Producto actualizado exitosamente!');
+                window.location.href = 'index.html';
+                
+            } catch (error) {
+                console.error('Error al actualizar producto:', error);
+                alert('Error al actualizar el producto. Intenta de nuevo.');
+                hideLoading();
+            }
+        });
+
+        // Función para eliminar producto
+        window.deleteProduct = async function() {
+            if (confirm('¿Estás seguro de que quieres eliminar este producto? Esta acción no se puede deshacer.')) {
+                try {
+                    await deleteDoc(doc(db, "products", productId));
+                    alert('Producto eliminado exitosamente!');
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Error al eliminar producto:', error);
+                    alert('Error al eliminar el producto. Intenta de nuevo.');
+                }
+            }
+        };
+
+        // Cargar producto al cargar la página
+        document.addEventListener('DOMContentLoaded', loadProduct);
+    </script>
+</body>
+</html> 
